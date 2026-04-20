@@ -1,0 +1,49 @@
+# General configuration
+general:
+  seed: 1337
+
+# Data loader configuration
+data:
+  output_dir: "data/step4/dghs_detoxified"
+  # date_name: "20251118_005721"
+  date_name: "none"
+  
+# Model configuration
+model:
+  is_single_model: false
+  ft_model_path_prefix: "/path/to/finetuned_lm"
+  is_instruct: false
+  interval_step: 500
+  start_step: 500
+  end_step: 3000
+
+# Detoxify configuration
+detoxify:
+  model_type: "original"
+  ckpt_path: "/path/to/detoxify/toxic_original-c1212f89.ckpt"
+  huggingface_config_path: "/path/to/bert-base-uncased"
+
+
+# Evaluation configuration
+eval:
+ # choices: ["toxic", "ppl", "distinctness", "mmlu"]
+  mode_names: ["toxic", "ppl", "distinctness", "mmlu"]
+  unidetox_mode: "test"
+  sample_times: 5
+
+  toxic_args:
+    dataset:
+      toxic_dataset_path: "/path/to/toxigen-data"
+      split: ${eval.unidetox_mode}
+      fraction: 0.667
+    alpha: 0.1
+    beta: "inf"
+    batch_size: 64
+
+  ppl_args:
+    ref_model_path: "/path/to/Llama-2-7b-hf"
+
+  mmlu_args:
+    mmlu_dataset_path: "/path/to/mmlu"
+    shots_num: 1
+  

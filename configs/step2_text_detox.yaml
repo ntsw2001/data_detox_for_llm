@@ -1,0 +1,56 @@
+# General configuration
+general:
+  seed: 1337
+  is_resumed: false
+  resume_dir: "none"
+
+# Data loader configuration
+data:
+  input_file: "data/dghs_to_detox.jsonl"
+  output_dir: "data/step2/dghs_detoxified"
+  data_workers: 4
+
+# Model configuration
+model:
+  model_type: "qwen2"
+  model_size_info: "3-0.5" # base-toxic
+  model_path: "/path/to/Qwen2.5-3B-Instruct"
+  toxic_model_path: "/path/to/toxic_small_lm"
+
+# Generation configuration
+gen:
+  batch_size: 2
+  max_prompt_length: 512
+  max_new_tokens: 512
+  max_gen_repeat_times: 2
+  do_sample: True
+  temperature_list: [0.6, 0.8, 1.0, 1.2, 1.5]
+  detox_mode_name: "socd"
+
+# Detoxify configuration
+detox:
+  diffs_fn:
+    # choices: none, fkl, rkl, js, tvd, wsd
+    diffs_fn_name: "wsd"
+    diffs_fn_args:
+      # wsd
+      wsd_p: 1
+      wsd_blur: 0.01
+    
+  shots_num: 1
+
+  prompt_only:
+    shots_num: ${detox.shots_num}
+
+  vanilla_cd:
+    alpha: 0.1
+    beta1: 0.5
+    beta2: 0.5
+
+  socd:
+    k_setting: "dynamic"
+    top_k_num: 10
+    beta1: 0.5
+    beta2: 0.5
+
+  

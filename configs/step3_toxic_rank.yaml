@@ -1,0 +1,27 @@
+# General configuration
+general:
+  seed: 1337
+
+# Data loader configuration
+data:
+  data_name: "dghs"
+  input_file: "/path/to/detoxified_jsonl"
+  output_dir: "data/step3/dghs_detoxified"
+
+# Model configuration
+## Embedding
+embeddings:
+  embedding_model: "Qwen3-Embedding-0.6B"
+  embedding_model_path: "/path/to/Qwen3-Embedding-0.6B"
+  dim_num: 1024
+
+## Detoxify
+detoxify:
+  model_type: "original"
+  ckpt_path: "/path/to/detoxify/toxic_original-c1212f89.ckpt"
+  huggingface_config_path: "/path/to/bert-base-uncased"
+
+# Rank configuration
+rank_mode:
+  rank_mode_name: "cosine_similarity"
+  
