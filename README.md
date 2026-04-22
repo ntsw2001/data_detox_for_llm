@@ -2,6 +2,10 @@
 
 Official code for the paper **Detoxification for LLM: From Dataset Itself** (ACL 2026 Main, Poster). The code is based on transformers.
 
+> Wei Shao, Yihang Wang, Gaoyu Zhu, Ziqiang Cheng, Lei Yu*, Jiafeng Guo, Xueqi Cheng
+
+[![arXiv](https://img.shields.io/badge/arXiv-2604.19124-b31b1b?logo=arxiv)](https://arxiv.org/abs/2604.19124)
+
 
 
 ## Environment Requirements
@@ -10,7 +14,6 @@ Official code for the paper **Detoxification for LLM: From Dataset Itself** (ACL
 - Python 3.12.13
 
 ```bash
-git lfs install
 git clone https://github.com/ntsw2001/data_detox_for_llm.git
 pip install -r requirements.txt
 ```
@@ -18,6 +21,8 @@ pip install -r requirements.txt
 
 
 ## Data and Model Preparation
+
+> This project is built with following open resources, and please follow their original licenses and usage policies.
 
 Datasets used in this work:
 
@@ -61,6 +66,8 @@ bash scripts/step1_finetune_toxic.sh
 
 ## Detoxification
 
+> Small toxic language model is needed.
+
 **SoCD**
 
 ```bash
@@ -97,4 +104,22 @@ We provide the detoxified text files that achieved the best detoxification resul
 
 
 
-If you find our work helpful, please cite our paper (TBD)
+## Citation
+
+```bibtex
+@misc{shao2026detoxificationllmdataset,
+      title={Detoxification for LLM: From Dataset Itself}, 
+      author={Wei Shao and Yihang Wang and Gaoyu Zhu and Ziqiang Cheng and Lei Yu and Jiafeng Guo and Xueqi Cheng},
+      year={2026},
+      eprint={2604.19124},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2604.19124}, 
+}
+```
+
+
+
+## Contact
+
+If you have any questions, please contact: `shaowei23s@ict.ac.cn` or `ntsw2001@hotmail.com` or `yihangwang1020@gmail.com` .
